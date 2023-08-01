@@ -1,0 +1,45 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 5px;
+  gap: 5px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  z-index: 1000;
+}
+
+.sign-in-btn {
+  background: #4caf50;
+  color: #fff;
+  font-size: 14px;
+  outline: 0px;
+  padding: 15px;
+  border: 0px;
+  cursor: pointer;
+  transition: 0.3 ease;
+}
+
+.sign-in-btn:hover {
+  background: #419644;
+}
+
+.clear-btn {
+  background: #fff;
+  color: #c6c4c4;
+  font-size: 14px;
+  padding: 15px;
+  border: 2px solid #4caf50;
+  cursor: pointer;
+}
+
+.input {
+  outline: 0px;
+  color: #5e5e5e;
+  background: #f2f2f2;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
