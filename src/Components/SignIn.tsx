@@ -1,23 +1,40 @@
 import React, { useState } from "react";
 import "./SignIn.css";
+import { LogInProps } from "./App";
 
 interface SignInProps {
-  logIn: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
+  logIn: (LoginInfo: LogInProps) => Promise<void>;
 }
 
 export default function SignIn(props: SignInProps) {
+  const { logIn } = props;
+
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-
-  const { logIn } = props;
+  const [showError, setShowError] = useState<boolean>(false);
 
   function clearForm() {
     setEmail("");
     setPassword("");
+    setShowError(false);
+  }
+
+  function handleOnFormSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!email || !password) {
+      setShowError(true);
+      return;
+    }
+
+    if (showError && password && email) {
+      setShowError(false);
+    }
+
+    logIn({ email, password });
   }
 
   return (
-    <form className='form' onSubmit={logIn}>
+    <form className='form' onSubmit={handleOnFormSubmit}>
       <input
         className='input'
         id='email'
@@ -32,8 +49,11 @@ export default function SignIn(props: SignInProps) {
         placeholder='password'
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button className='sign-in-btn'>Sign In</button>
-      <button className='clear-btn' onClick={clearForm}>
+      {showError && <div className='error'>Please fill out fields</div>}
+      <button className='sign-in-btn' type='submit'>
+        Sign In
+      </button>
+      <button className='clear-btn' type='button' onClick={clearForm}>
         Clear
       </button>
     </form>

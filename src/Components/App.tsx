@@ -1,10 +1,13 @@
 import SignIn from "./SignIn";
 
-export default function App() {
-  async function logIn(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+export interface LogInProps {
+  email: string;
+  password: string;
+}
 
-    console.log(e.currentTarget.password.value, e.currentTarget.email.value);
+export default function App() {
+  async function logIn({ email, password }: LogInProps) {
+    console.log(email, password);
   }
 
   return (
