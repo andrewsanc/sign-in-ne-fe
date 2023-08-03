@@ -1,3 +1,5 @@
+import { useState } from "react";
+import Dashboard from "./Dashboard";
 import SignIn from "./SignIn";
 
 export interface LogInProps {
@@ -6,6 +8,8 @@ export interface LogInProps {
 }
 
 export default function App() {
+  const [userSignIn, setUserSignIn] = useState<boolean>(false);
+
   async function logIn({ email, password }: LogInProps) {
     console.log(email, password);
 
@@ -20,12 +24,14 @@ export default function App() {
       }),
     });
     const { token } = await response.json();
+    setUserSignIn(true);
     localStorage.setItem("token", token);
   }
 
   return (
     <>
       <SignIn logIn={logIn} />
+      {userSignIn && <Dashboard />}
     </>
   );
 }

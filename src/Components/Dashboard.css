@@ -1,0 +1,38 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 30px;
+  margin: 20px 0px;
+  border-radius: 5px;
+  gap: 5px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  z-index: 1000;
+}
+
+h1 {
+  color: #5e5e5e;
+  margin: 2px 0px;
+}
+
+h4 {
+  color: #5e5e5e;
+  margin: 0px 0px 5px;
+}
+
+.get-data-btn {
+  background: #4caf50;
+  color: #fff;
+  font-size: 14px;
+  width: 100%;
+  outline: 0px;
+  padding: 15px;
+  border: 0px;
+  cursor: pointer;
+  transition: 0.3 ease;
+}
+
+.get-data-btn:hover {
+  background: #419644;
+}
