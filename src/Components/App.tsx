@@ -8,6 +8,19 @@ export interface LogInProps {
 export default function App() {
   async function logIn({ email, password }: LogInProps) {
     console.log(email, password);
+
+    const response = await fetch("http://localhost:3000/api/v1/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+    const { token } = await response.json();
+    localStorage.setItem("token", token);
   }
 
   return (
