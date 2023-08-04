@@ -8,7 +8,10 @@ export interface LogInProps {
 }
 
 export default function App() {
-  const [userSignIn, setUserSignIn] = useState<boolean>(false);
+  const [userSignIn, setUserSignIn] = useState<boolean>(() => {
+    const token = localStorage.getItem("token");
+    return token !== null;
+  });
 
   async function logIn({ email, password }: LogInProps) {
     console.log(email, password);
@@ -30,7 +33,11 @@ export default function App() {
 
   return (
     <>
-      <SignIn logIn={logIn} />
+      <SignIn
+        logIn={logIn}
+        userSignIn={userSignIn}
+        setUserSignIn={setUserSignIn}
+      />
       {userSignIn && <Dashboard />}
     </>
   );
