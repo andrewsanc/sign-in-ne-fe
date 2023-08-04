@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 450px;
   background-color: #ffffff;
   padding: 30px;
   margin: 20px 0px;
@@ -11,14 +12,8 @@
   z-index: 1000;
 }
 
-h1 {
+div {
   color: #5e5e5e;
-  margin: 2px 0px;
-}
-
-h4 {
-  color: #5e5e5e;
-  margin: 0px 0px 5px;
 }
 
 .get-data-btn {

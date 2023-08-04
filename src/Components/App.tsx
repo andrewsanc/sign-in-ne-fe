@@ -38,7 +38,7 @@ export default function App() {
         userSignIn={userSignIn}
         setUserSignIn={setUserSignIn}
       />
-      {userSignIn && <Dashboard />}
+      {userSignIn && <Dashboard userSignIn={userSignIn} />}
     </>
   );
 }
